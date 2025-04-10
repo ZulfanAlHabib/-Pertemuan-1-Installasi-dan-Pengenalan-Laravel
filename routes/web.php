@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\HomepageController;
 
 // // Halaman utama
 // Route::get('/', function () {
@@ -70,11 +71,16 @@ use Livewire\Volt\Volt;
 
 // require _DIR_.'/auth.php';
 
-Route::get('/', function(){
-    $title = "Homepage - ai_store";
-    return view('web.homepage',['title'=>$title]);
+// Route::get('/', function(){
+//     $title = "Homepage - ai_store";
+//     return view('web.homepage',['title'=>$title]);
+Route::get('/',[HomepageController::class,'index']);
 
-   });   
+//Kode Baru
+Route::get('product',[HomepageController::class,'products']);
+
+
+
 Route::get('products', function(){
     $title = "product - ai_store";
     return view('web.homepage',['title'=>$title]);
@@ -95,3 +101,4 @@ Route::get('cart', function(){
 Route::get('checkout', function(){
     return "halaman checkout";
    });
+
